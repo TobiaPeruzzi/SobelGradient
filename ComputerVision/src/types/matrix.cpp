@@ -53,6 +53,16 @@ bool cv::types::Matrix::Resize(int rows, int columns)
   _data = newMatrix._data;
 }
 
+int cv::types::Matrix::RowN()
+{
+  return _rows;
+}
+
+int cv::types::Matrix::ColumnsN()
+{
+  return _cols;
+}
+
 void cv::types::Matrix::RangeCheck(int& i, int& j)
 {
   if (i < 0) i = 0;

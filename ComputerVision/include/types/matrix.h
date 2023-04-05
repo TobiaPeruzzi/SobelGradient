@@ -18,6 +18,9 @@ namespace cv
       bool Set(int row, int column, double value);
       double Get(int row, int column);
       bool Resize(int rows, int columns);
+    public:
+      int RowN();
+      int ColumnsN();
     private:
       void RangeCheck(int& i, int& j);
     };
