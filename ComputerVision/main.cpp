@@ -4,5 +4,5 @@
 
 int main()
 {
-  auto gradient = cv::algorithms::SobelGradient();
+  auto gradient = cv::algorithms::SobelGradient("C:\\Users\\t.peruzzi\\Desktop\\Untitled.png");
 }

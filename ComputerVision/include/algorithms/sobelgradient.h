@@ -16,7 +16,7 @@ namespace cv
         -1.0, -2.0, -1.0);
       types::Matrix _imgArray;
     public:
-      SobelGradient(types::Matrix img);
+      SobelGradient(std::string imgPath);
     public:
       bool Apply();
     };

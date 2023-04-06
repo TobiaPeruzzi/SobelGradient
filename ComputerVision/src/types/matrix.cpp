@@ -36,6 +36,7 @@ bool cv::types::Matrix::Resize(int rows, int columns)
   auto newMatrix = Matrix(rows, columns);
   if (size > oldSize)
   {
+    //todo: refactor with vectorization
     for (int i = 0; i < _rows; i++)
       for (int j = 0; j < _cols; j++)
         newMatrix.Set(i, j, Get(i, j));
@@ -44,6 +45,7 @@ bool cv::types::Matrix::Resize(int rows, int columns)
   {
     int tmpRows = std::min(rows, _rows);
     int tmpCols = std::min(columns, _cols);
+    //todo: refactor with vectorization
     for (int i = 0; i < tmpRows; i++)
       for (int j = 0; j < tmpCols; j++)
         newMatrix.Set(i, j, Get(i, j));
@@ -51,6 +53,7 @@ bool cv::types::Matrix::Resize(int rows, int columns)
   _rows = rows;
   _cols = columns;
   _data = newMatrix._data;
+  return true;
 }
 
 int cv::types::Matrix::RowN()

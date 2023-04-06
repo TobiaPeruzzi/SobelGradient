@@ -72,7 +72,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Utente\source\repos\Portfolio\ComputerVision\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Utente\source\repos\Portfolio\ComputerVision\include;C:\Users\t.peruzzi\source\repos\Portfolio\ComputerVision\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -133,11 +133,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\algorithms\sobelgradient.cpp" />
+    <ClCompile Include="src\lib\lodepng.cpp" />
     <ClCompile Include="src\types\matrix.cpp" />
     <ClCompile Include="src\types\matrix3d.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\algorithms\sobelgradient.h" />
+    <ClInclude Include="include\lib\lodepng.h" />
     <ClInclude Include="include\types\matrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

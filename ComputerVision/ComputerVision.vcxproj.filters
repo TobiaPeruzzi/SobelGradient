@@ -11,6 +11,9 @@
     <ClCompile Include="src\types\matrix3d.cpp">
       <Filter>src\types</Filter>
     </ClCompile>
+    <ClCompile Include="src\lib\lodepng.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -31,6 +34,12 @@
     <Filter Include="src\algorithms">
       <UniqueIdentifier>{d91e293e-9788-4c63-9000-cc009d766b76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\lib">
+      <UniqueIdentifier>{fc85c528-051e-42d3-8184-6af53ce33940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lib">
+      <UniqueIdentifier>{2f845334-d63b-487b-92ab-005d356701ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\algorithms\sobelgradient.h">
@@ -38,6 +47,9 @@
     </ClInclude>
     <ClInclude Include="include\types\matrix.h">
       <Filter>include\types</Filter>
+    </ClInclude>
+    <ClInclude Include="include\lib\lodepng.h">
+      <Filter>include\lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
