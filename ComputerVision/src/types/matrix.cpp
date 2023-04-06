@@ -15,6 +15,17 @@ cv::types::Matrix::Matrix(int rows, int columns, double seed)
   memset(_data, (int)seed, size * sizeof(double));
 }
 
+cv::types::Matrix::Matrix(std::vector<unsigned char> data, int rows, int columns)
+{
+  _rows = rows;
+  _cols = columns;
+  auto size = (size_t)_rows * _cols;
+  _data = new double[size];
+  for (int i = 0; i < rows; i++)
+    for (int j = 0; j < columns; j++)
+      Set(j, i, static_cast<double>(data[i + j * rows]));
+}
+
 bool cv::types::Matrix::Set(int row, int column, double value)
 {
   RangeCheck(row, column);
@@ -36,7 +47,7 @@ bool cv::types::Matrix::Resize(int rows, int columns)
   auto newMatrix = Matrix(rows, columns);
   if (size > oldSize)
   {
-    //todo: refactor with vectorization
+    //todo: refactor with vectorization or memcopy
     for (int i = 0; i < _rows; i++)
       for (int j = 0; j < _cols; j++)
         newMatrix.Set(i, j, Get(i, j));
@@ -64,6 +75,17 @@ int cv::types::Matrix::RowN()
 int cv::types::Matrix::ColumnsN()
 {
   return _cols;
+}
+
+std::vector<unsigned char> cv::types::Matrix::GetImgOutput()
+{
+  std::vector<unsigned char> ret(_rows * _cols);
+  for (int i = 0; i < _rows; i++)
+    for (int j = 0; j < _cols; j++)
+    {
+      ret[i * _cols + j] = Get(i, j);
+    }
+  return ret;
 }
 
 void cv::types::Matrix::RangeCheck(int& i, int& j)

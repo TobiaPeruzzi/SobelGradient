@@ -136,11 +136,14 @@
     <ClCompile Include="src\lib\lodepng.cpp" />
     <ClCompile Include="src\types\matrix.cpp" />
     <ClCompile Include="src\types\matrix3d.cpp" />
+    <ClCompile Include="src\types\matrixrgba.cpp" />
+    <ClCompile Include="src\types\rgba.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\algorithms\sobelgradient.h" />
     <ClInclude Include="include\lib\lodepng.h" />
     <ClInclude Include="include\types\matrix.h" />
+    <ClInclude Include="include\types\rgba.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

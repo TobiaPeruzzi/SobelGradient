@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <vector>
+#include "rgba.h"
 
 namespace cv
 {
@@ -14,14 +16,16 @@ namespace cv
     public:
       Matrix();
       Matrix(int rows, int columns, double seed = 0);
+      Matrix(std::vector<unsigned char> data, int rows, int columns);
     public:
-      bool Set(int row, int column, double value);
-      double Get(int row, int column);
-      bool Resize(int rows, int columns);
+      virtual bool Set(int row, int column, double value);
+      virtual double Get(int row, int column);
+      virtual bool Resize(int rows, int columns);
     public:
       int RowN();
       int ColumnsN();
-    private:
+      std::vector<unsigned char> GetImgOutput();
+    protected:
       void RangeCheck(int& i, int& j);
     };
 
@@ -36,6 +40,24 @@ namespace cv
       Matrix3D(double a, double b, double c,
         double d, double e, double f,
         double g, double h, double i);
+    };
+
+    class RGBAMatrix
+    {
+    private:
+      RGBA* _data;
+      int _rows;
+      int _cols;
+    public:
+      RGBAMatrix(int rows, int columns);
+      RGBAMatrix(std::vector<unsigned char> data, int rows, int columns);
+    public:
+      bool Set(int row, int column, RGBA value);
+      RGBA Get(int row, int column);
+      bool Resize(int rows, int columns);
+      std::vector<unsigned char> GetImgOutput();
+    private:
+      void RangeCheck(int& i, int& j);
     };
   }
 }
