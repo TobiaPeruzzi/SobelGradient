@@ -15,6 +15,10 @@ namespace cv
       int A;
     public:
       RGBA(int r = 0, int g = 0, int b = 0, int a = 255);
+    public:
+      double Dot(RGBA& pt);
+      void Scale(int val);
+      void Sum(RGBA& pt);
     };
   }
 }

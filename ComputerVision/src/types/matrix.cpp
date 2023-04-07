@@ -67,7 +67,7 @@ bool cv::types::Matrix::Resize(int rows, int columns)
   return true;
 }
 
-int cv::types::Matrix::RowN()
+int cv::types::Matrix::RowsN()
 {
   return _rows;
 }
@@ -82,9 +82,7 @@ std::vector<unsigned char> cv::types::Matrix::GetImgOutput()
   std::vector<unsigned char> ret(_rows * _cols);
   for (int i = 0; i < _rows; i++)
     for (int j = 0; j < _cols; j++)
-    {
       ret[i * _cols + j] = Get(i, j);
-    }
   return ret;
 }
 

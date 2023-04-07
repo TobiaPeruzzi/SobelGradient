@@ -22,7 +22,7 @@ namespace cv
       virtual double Get(int row, int column);
       virtual bool Resize(int rows, int columns);
     public:
-      int RowN();
+      int RowsN();
       int ColumnsN();
       std::vector<unsigned char> GetImgOutput();
     protected:
@@ -49,6 +49,7 @@ namespace cv
       int _rows;
       int _cols;
     public:
+      RGBAMatrix();
       RGBAMatrix(int rows, int columns);
       RGBAMatrix(std::vector<unsigned char> data, int rows, int columns);
     public:
@@ -56,8 +57,12 @@ namespace cv
       RGBA Get(int row, int column);
       bool Resize(int rows, int columns);
       std::vector<unsigned char> GetImgOutput();
+      int RowsN();
+      int ColumnsN();
+      RGBAMatrix* Extract3x3Patch(int centerRow, int centerColumn, bool padding = false);
     private:
       void RangeCheck(int& i, int& j);
+      bool Padding(int& centerRow, int& centerColumn, RGBAMatrix* data);
     };
   }
 }

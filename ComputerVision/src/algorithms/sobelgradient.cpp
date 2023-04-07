@@ -11,17 +11,52 @@ cv::algorithms::SobelGradient::SobelGradient(std::string imgPath)
     std::cout << "Error loading image" << std::endl;
     return;
   }
-  auto imgMatrix = types::RGBAMatrix(img, width, height);
-  auto imgVec = imgMatrix.GetImgOutput();
-  std::string outPath = "C:\\Users\\t.peruzzi\\Desktop\\testThingPng.png";
-  if (lodepng::encode(outPath, imgVec, width, height))
-  {
-    std::cout << "Error encoding" << std::endl;
-  }
+  _imgArray = types::RGBAMatrix(img, width, height);
 }
 
 bool cv::algorithms::SobelGradient::Apply()
 {
-  auto convImg = types::Matrix(_imgArray.RowN(), _imgArray.ColumnsN());
+  int rows = _imgArray.RowsN();
+  int cols = _imgArray.ColumnsN();
+  std::vector<unsigned char> result(rows * cols * 4);
+  types::RGBA xConv;
+  types::RGBA yConv;
+  int resID = 0;
+  for (int i = 0; i < rows; i++)
+  {
+    for (int j = 0; j < cols; j++)
+    {
+      types::RGBAMatrix* testPad = _imgArray.Extract3x3Patch(i, j, true);
+      types::RGBA xConv;
+      types::RGBA yConv;
+      Convolution(testPad, xConv, yConv);
+      result[resID++] = xConv.R;
+      result[resID++] = xConv.G;
+      result[resID++] = xConv.B;
+      result[resID++] = xConv.A;
+      delete testPad;
+    }
+  }
+  std::string testPadPath = "C:\\Users\\t.peruzzi\\Desktop\\testConv.png";
+  if (lodepng::encode(testPadPath, result, cols, rows))
+  {
+    std::cout << "Failed Encode" << std::endl;
+  }
   return true;
+}
+
+void cv::algorithms::SobelGradient::Convolution(types::RGBAMatrix* patch, types::RGBA& xConv, types::RGBA& yConv)
+{
+  for (int i = 0; i < 3; i++)
+  {
+    for (int j = 0; j < 3; j++)
+    {
+      types::RGBA tmpPtX = patch->Get(i, j);
+      types::RGBA tmpPtY = tmpPtX;
+      tmpPtX.Scale(_Gx.Get(i, j));
+      xConv.Sum(tmpPtX);
+      tmpPtY.Scale(_GY.Get(i, j));
+      yConv.Sum(tmpPtY);
+    }
+  }
 }
