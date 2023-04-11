@@ -106,6 +106,21 @@ cv::types::RGBAMatrix* cv::types::RGBAMatrix::Extract3x3Patch(int centerRow, int
   return patch;
 }
 
+cv::types::Matrix* cv::types::RGBAMatrix::ConvertGrayscale()
+{
+  Matrix* ret = new Matrix(_rows, _cols);
+  for (int i = 0; i < _rows; i++)
+  {
+    for (int j = 0; j < _cols; j++)
+    {
+      types::RGBA rgbaValue = Get(i, j);
+      //using weighted conversion from rgba to grayscale. The A value is lost in the conversion
+      ret->Set(i, j, 0.299 * rgbaValue.R + 0.587 * rgbaValue.G + 0.114 * rgbaValue.B);
+    }
+  }
+  return ret;
+}
+
 bool cv::types::RGBAMatrix::Resize(int rows, int columns)
 {
   auto size = (size_t)rows * columns;

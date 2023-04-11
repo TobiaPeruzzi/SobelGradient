@@ -7,6 +7,8 @@ namespace cv
 {
   namespace types
   {
+    //forward declaration necessary
+    class Matrix3D;
     class Matrix
     {
     private:
@@ -21,10 +23,12 @@ namespace cv
       virtual bool Set(int row, int column, double value);
       virtual double Get(int row, int column);
       virtual bool Resize(int rows, int columns);
+      void Scale(double s);
     public:
       int RowsN();
       int ColumnsN();
       std::vector<unsigned char> GetImgOutput();
+      Matrix3D* Extract3x3Patch(int centerRow, int centerColumn, bool padding = false);
     protected:
       void RangeCheck(int& i, int& j);
     };
@@ -40,6 +44,8 @@ namespace cv
       Matrix3D(double a, double b, double c,
         double d, double e, double f,
         double g, double h, double i);
+    public:
+      bool Padding(int& centerRow, int& centerColumn);
     };
 
     class RGBAMatrix
@@ -60,6 +66,7 @@ namespace cv
       int RowsN();
       int ColumnsN();
       RGBAMatrix* Extract3x3Patch(int centerRow, int centerColumn, bool padding = false);
+      Matrix* ConvertGrayscale();
     private:
       void RangeCheck(int& i, int& j);
       bool Padding(int& centerRow, int& centerColumn, RGBAMatrix* data);

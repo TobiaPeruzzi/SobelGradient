@@ -67,6 +67,17 @@ bool cv::types::Matrix::Resize(int rows, int columns)
   return true;
 }
 
+void cv::types::Matrix::Scale(double s)
+{
+  for (int i = 0; i < _rows; i++)
+  {
+    for (int j = 0; j < _cols; j++)
+    {
+      Set(i, j, Get(i, j) * s);
+    }
+  }
+}
+
 int cv::types::Matrix::RowsN()
 {
   return _rows;
@@ -84,6 +95,24 @@ std::vector<unsigned char> cv::types::Matrix::GetImgOutput()
     for (int j = 0; j < _cols; j++)
       ret[i * _cols + j] = Get(i, j);
   return ret;
+}
+
+cv::types::Matrix3D* cv::types::Matrix::Extract3x3Patch(int centerRow, int centerColumn, bool padding)
+{
+  if (!padding && (centerRow == 0 || centerColumn == 0 || centerRow == _rows - 1 || centerRow == _cols - 1)) return 0x00;
+  types::Matrix3D* patch = new types::Matrix3D();
+  int patchRowId = 0;
+  if (patch->Padding(centerRow, centerColumn)) return patch;
+  for (int i = centerRow - 1; i <= centerRow + 1; i++)
+  {
+    int patchColId = 0;
+    for (int j = centerColumn - 1; j <= centerColumn + 1; j++)
+    {
+      patch->Set(patchRowId, patchColId++, Get(i, j));
+    }
+    patchRowId++;
+  }
+  return patch;
 }
 
 void cv::types::Matrix::RangeCheck(int& i, int& j)

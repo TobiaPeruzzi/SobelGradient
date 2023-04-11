@@ -17,7 +17,7 @@
     <ClCompile Include="src\types\rgba.cpp">
       <Filter>src\types</Filter>
     </ClCompile>
-    <ClCompile Include="src\types\matrixrgba.cpp">
+    <ClCompile Include="src\types\rgbamatrix.cpp">
       <Filter>src\types</Filter>
     </ClCompile>
   </ItemGroup>
