@@ -41,7 +41,7 @@ and below the result of the application of the Sobel operator taken from wikiped
 
 Sobel operator wikipedia result             |  Sobel operator this implementation result
 :-------------------------:|:-------------------------:
-![](https://upload.wikimedia.org/wikipedia/commons/d/d4/Valve_sobel_%283%29.PNG)  |  ![](ComputerVision/convResult.png)
+![](https://upload.wikimedia.org/wikipedia/commons/d/d4/Valve_sobel_%283%29.PNG)  |  ![](ComputerVision/data/convResult.png)
 
 The result presented above in the image to the right, was obtained with a threshold of 20 and a pre-smoothing of the image.
 
@@ -49,7 +49,7 @@ Another result of this algorithm is shown below, where the image to the left was
 
 Smartphone photo             |  Sobel operator applied to the photo
 :-------------------------:|:-------------------------:
-![](ComputerVision/phone_img.png)  |  ![](ComputerVision/conv_phone_img.png)
+![](ComputerVision/data/phone_img.png)  |  ![](ComputerVision/data/conv_phone_img.png)
 
 <h1>
   Dependencies
