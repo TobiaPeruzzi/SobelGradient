@@ -18,6 +18,11 @@ Only 2 parameters are used in this implementation:
   Results
 </h1>
 
+The following 2 images are taken from wikipedia (<a href="https://en.wikipedia.org/wiki/Sobel_operator#Example">Sobel operator</a>):
+
+Color picture of an engine             |  Sobel operator applied to the engine image
+:-------------------------:|:-------------------------:
+![](https://en.wikipedia.org/wiki/Sobel_operator#/media/File:Valve_original_(1).PNG)  |  ![](https://en.wikipedia.org/wiki/Sobel_operator#/media/File:Valve_sobel_(3).PNG)
 
 <h1>
   Dependencies
