@@ -35,9 +35,10 @@ bool cv::algorithms::SobelGradient::Apply()
       double xConv = 0;
       double yConv = 0;
       SobelConvolution(patch, xConv, yConv);
-      double convRes = ::sqrt(xConv * xConv + yConv * yConv);
-      if (convRes <= _threshold) convRes = 0;
-      else convRes = (int)(convRes + 0.5); //rounding the result of convolution
+      double convResTmp = ::sqrt(xConv * xConv + yConv * yConv);
+      int convRes; 
+      if (convResTmp <= _threshold) convRes = 0;
+      else convRes = (int)(convResTmp + 0.5); //rounding the result of convolution
       _result[resID++] = convRes;
       _result[resID++] = convRes;
       _result[resID++] = convRes;
