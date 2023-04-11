@@ -45,6 +45,12 @@ Sobel operator wikipedia result             |  Sobel operator this implementatio
 
 The result presented above in the image to the right, was obtained with a threshold of 20 and a pre-smoothing of the image.
 
+Another result of this algorithm is shown below, where the image to the left was taken from the camera of my smartphone:
+
+Smartphone photo             |  Sobel operator applied to the photo
+:-------------------------:|:-------------------------:
+![](ComputerVision/phone_img.png)  |  ![](ComputerVision/conv_phone_img.png)
+
 <h1>
   Dependencies
 </h1>
