@@ -34,8 +34,8 @@ bld/
 [Ll]ogs/
 
 
-.vcxproj
-.vcxproj.filters
+ComputerVision/.vcxproj
+ComputerVision/.vcxproj.filters
 
 
 # Visual Studio 2015/2017 cache/options directory
@@ -366,3 +366,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ComputerVision/ComputerVision.vcxproj
+/ComputerVision/ComputerVision.vcxproj.filters
