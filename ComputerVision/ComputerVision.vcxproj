@@ -139,8 +139,8 @@
     <ClCompile Include="src\lib\lodepng.cpp" />
     <ClCompile Include="src\types\matrix.cpp" />
     <ClCompile Include="src\types\matrix3d.cpp" />
-    <ClCompile Include="src\types\rgbamatrix.cpp" />
     <ClCompile Include="src\types\rgba.cpp" />
+    <ClCompile Include="src\types\rgbamatrix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\algorithms\sobelgradient.h" />
