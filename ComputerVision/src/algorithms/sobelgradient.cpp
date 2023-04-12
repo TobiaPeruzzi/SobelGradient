@@ -42,7 +42,9 @@ bool cv::algorithms::SobelGradient::Apply()
       _result[resID++] = convRes;
       _result[resID++] = convRes;
       _result[resID++] = convRes;
-      _result[resID++] = convRes;
+      //since transparency value is ignored throughout the process, I'm assigning it the max value to enhance contrast
+      //in the resulting image
+      _result[resID++] = 255;
       delete patch;
     }
   }
