@@ -16,7 +16,7 @@ Only 2 parameters are used in this implementation:
 in the resulting image
 
 <h1>
-  Algorithm Fuction
+  Algorithm Logic
 </h1>
 
 The algorithm works following these steps:
