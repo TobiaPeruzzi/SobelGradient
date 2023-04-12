@@ -16,7 +16,7 @@ Only 2 parameters are used in this implementation:
 in the resulting image
 
 <h1>
-  Algorithm Fuction
+  Algorithm Logic
 </h1>
 
 The algorithm works following these steps:
@@ -35,21 +35,26 @@ a group of four integers representing red, green, blue and transparency of the p
 
 To show the results that this implementation can produce, I'm comparing an example taken from wikipedia to the result that my algorithm can give.
 The following image is taken from the Sobel operator wikipedia page (<a href="https://en.wikipedia.org/wiki/Sobel_operator">Sobel operator</a>):
+
 ![Color picture of an engine](https://upload.wikimedia.org/wikipedia/commons/f/f0/Valve_original_%281%29.PNG)
 
 and below the result of the application of the Sobel operator taken from wikipedia (left) is compared to the result that my implementation is able to produce (right):
 
 Sobel operator wikipedia result             |  Sobel operator this implementation result
 :-------------------------:|:-------------------------:
-![](https://upload.wikimedia.org/wikipedia/commons/d/d4/Valve_sobel_%283%29.PNG)  |  ![](ComputerVision/data/convResult.png)
+![](https://upload.wikimedia.org/wikipedia/commons/d/d4/Valve_sobel_%283%29.PNG)  |  ![](ComputerVision/data/conv_result_1.png)
 
 The result presented above in the image to the right, was obtained with a threshold of 20 and a pre-smoothing of the image.
 
-Another result of this algorithm is shown below, where the image to the left was taken from the camera of my smartphone:
+Another result of this algorithm is presented, where the image given as the input of the algorithm is a photo taken with my smartphone and shown below:
 
-Smartphone photo             |  Sobel operator applied to the photo
+![Smartphone photo](ComputerVision/data/phone_img.png)
+
+and two resulting images were produced, one with threshold 20 (left) and the other one with threshold 100 (right):
+
+Sobel operator with threshold 20             |  Sobel operator with threshold 100
 :-------------------------:|:-------------------------:
-![](ComputerVision/data/phone_img.png)  |  ![](ComputerVision/data/conv_phone_img.png)
+![](ComputerVision/data/conv_phone_img_1.png)  |  ![](ComputerVision/data/conv_phone_img_2.png)
 
 <h1>
   Dependencies
