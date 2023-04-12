@@ -30,6 +30,23 @@ a group of four integers representing red, green, blue and transparency of the p
 - grayscale matrix is converted back to a vector of RGBA pixels in order to use lodepng to save a .png image
 
 <h1>
+  Guide and Example
+</h1>
+
+The algorithm can be used by creating an instance of the SobelGradient class, passing threshold value and smoothing requirement, and calling the Apply method. To save the resulting image one just needs to call the Save method and pass it the saving path, with output image name and .png extension (I did not add any type of check for
+file extension or save path). An example code snippet is shown below:
+
+```C++
+std::string inputPath = 'my/input/path.png';
+std::string outputPath = 'my/output/path.png';
+auto gradient = cv::algorithms::SobelGradient(inputPath, 50, true);
+gradient.Apply();
+gradient.Save(outputPath);
+```
+
+An example of usage is given in the main.cpp file, where both the loading and the saving path are left blank.
+
+<h1>
   Results
 </h1>
 
