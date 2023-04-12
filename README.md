@@ -41,7 +41,7 @@ and below the result of the application of the Sobel operator taken from wikiped
 
 Sobel operator wikipedia result             |  Sobel operator this implementation result
 :-------------------------:|:-------------------------:
-![](https://upload.wikimedia.org/wikipedia/commons/d/d4/Valve_sobel_%283%29.PNG)  |  ![](ComputerVision/data/convResult.png)
+![](https://upload.wikimedia.org/wikipedia/commons/d/d4/Valve_sobel_%283%29.PNG)  |  ![](ComputerVision/data/conv_result_1.png)
 
 The result presented above in the image to the right, was obtained with a threshold of 20 and a pre-smoothing of the image.
 
