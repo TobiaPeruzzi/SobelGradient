@@ -35,6 +35,7 @@ a group of four integers representing red, green, blue and transparency of the p
 
 To show the results that this implementation can produce, I'm comparing an example taken from wikipedia to the result that my algorithm can give.
 The following image is taken from the Sobel operator wikipedia page (<a href="https://en.wikipedia.org/wiki/Sobel_operator">Sobel operator</a>):
+
 ![Color picture of an engine](https://upload.wikimedia.org/wikipedia/commons/f/f0/Valve_original_%281%29.PNG)
 
 and below the result of the application of the Sobel operator taken from wikipedia (left) is compared to the result that my implementation is able to produce (right):
