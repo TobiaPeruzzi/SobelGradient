@@ -23,11 +23,12 @@ The algorithm works following these steps:
 - the image is loaded from the path given using lodepng library, which returns a vecotr of RGBA pixels
 - the RGBA pixels are organized in a matrix structure, that is a matrix in which every entry is represented by a custom type called RGBA, that is just
 a group of four integers representing red, green, blue and transparency of the pixels
-- the RGBA matrix is converted in a grayscale matrix (meaning a matrix in which every entry is just a single value)
-- the grayscale matrix is the smoothed if the corresponding parameter is set to True
+- the RGBA matrix is converted in a grayscale matrix, meaning a matrix in which every entry is just a single value (since in a grayscale image red, green and blue
+values for a single pixel are equal). In this step the transparency value A is lost and not considered 
+- the grayscale matrix is then smoothed if the corresponding parameter is set to True
 - the sobel operator is applied (both in x and y direction) to the grayscale matrix 
 - values resulting from the application of the Sobel operator are filtered based on the threshold value specified by the user
-- grayscale matrix is converted back to a vector of RGBA pixels in order to use lodepng to save a .png image
+- grayscale matrix is converted back to a vector of RGBA pixels in order to use lodepng to save a .png image (the transparency value A is arbitrarily set to the maximum value, since in this implementation A is not taken into account)
 
 <h1>
   Guide and Example
