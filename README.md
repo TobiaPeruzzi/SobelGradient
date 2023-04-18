@@ -58,7 +58,7 @@ The following image is taken from the Sobel operator wikipedia page (<a href="ht
 
 and below the result of the application of the Sobel operator taken from wikipedia (left) is compared to the result that my implementation is able to produce (right):
 
-Sobel operator wikipedia result             |  Sobel operator this implementation result
+Wikpedia Example             |  Result produced by my implementation
 :-------------------------:|:-------------------------:
 ![](https://upload.wikimedia.org/wikipedia/commons/d/d4/Valve_sobel_%283%29.PNG)  |  ![](ComputerVision/data/conv_result_1.png)
 
